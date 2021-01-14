@@ -1,0 +1,443 @@
+[
+  {
+    "study_program": "B.Sc. Applied Cognitive and Media Science PO14 - B-KM-14",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/21/detail",
+    "lectures": 39,
+    "exercise": 15,
+    "practicum": 18,
+    "seminar": 4,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/283/detail",
+    "lectures": 41,
+    "exercise": 18,
+    "practicum": 18,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Applied Computer Sience PO12 - B-AI-12",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/17/detail",
+    "lectures": 44,
+    "exercise": 25,
+    "practicum": 10,
+    "seminar": 6,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Applied Computer Sience PO19 - B-AI-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/191/detail",
+    "lectures": 44,
+    "exercise": 25,
+    "practicum": 10,
+    "seminar": 6,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Civil Engineering PO16 - B-BIW-16",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/2/detail",
+    "lectures": 52,
+    "exercise": 52,
+    "practicum": 1,
+    "seminar": 1,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Civil Engineering PO19 - B-BIW-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/235/detail",
+    "lectures": 52,
+    "exercise": 52,
+    "practicum": 1,
+    "seminar": 1,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Computer Engineering (Communications) PO15 - B-CE(Com)-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/29/detail",
+    "lectures": 54,
+    "exercise": 40,
+    "practicum": 13,
+    "seminar": 9,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Computer Engineering (Software Engineering) PO15 - B-CE(SE)-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/27/detail",
+    "lectures": 57,
+    "exercise": 35,
+    "practicum": 9,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Computer Engineering (Communications) PO19 - B-CE(Com)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/265/detail",
+    "lectures": 51,
+    "exercise": 38,
+    "practicum": 13,
+    "seminar": 3,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Computer Engineering (Software Engineering) PO19 - B-CE(SE)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/261/detail",
+    "lectures": 56,
+    "exercise": 35,
+    "practicum": 8,
+    "seminar": 1,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Electrical and Electronic Engineering PO15 - B-EEE-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/43/detail",
+    "lectures": 60,
+    "exercise": 41,
+    "practicum": 14,
+    "seminar": 9,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Electrical and Electronic Engineering PO19 - B-EEE-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/269/detail",
+    "lectures": 57,
+    "exercise": 39,
+    "practicum": 13,
+    "seminar": 3,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Electrical Engineering and Information Technology PO12 - B-EIT-12",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/19/detail",
+    "lectures": 65,
+    "exercise": 38,
+    "practicum": 23,
+    "seminar": 2,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Electrical Engineering and Information Technology PO19 - B-EIT-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/148/detail",
+    "lectures": 44,
+    "exercise": 27,
+    "practicum": 14,
+    "seminar": 4,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Electrical Power Technology and Management) PO09 - B-WI(EET)-09",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/13/detail",
+    "lectures": 83,
+    "exercise": 40,
+    "practicum": 8,
+    "seminar": 4,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Information Technology and Management) PO09 - B-WI(IT)-09",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/15/detail",
+    "lectures": 85,
+    "exercise": 43,
+    "practicum": 6,
+    "seminar": 4,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Mechanical Engineering and Management) PO09 - B-WI(MB)-09",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/3/detail",
+    "lectures": 83,
+    "exercise": 36,
+    "practicum": 5,
+    "seminar": 4,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Electrical Power Technology and Management) PO19 - B-WI(EET)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/255/detail",
+    "lectures": 76,
+    "exercise": 40,
+    "practicum": 7,
+    "seminar": 5,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Information Technology and Management) PO19 - B-WI(IT)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/257/detail",
+    "lectures": 76,
+    "exercise": 40,
+    "practicum": 9,
+    "seminar": 5,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Industrial Engineering (Mechanical Engineering and Management) PO19 - B-WI(MB)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/251/detail",
+    "lectures": 77,
+    "exercise": 36,
+    "practicum": 6,
+    "seminar": 5,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Lehramt Berufskolleg Bautechnik (große berufliche Fachrichtung Bautechnik mit kleiner beruflicher Fachrichtung Tiefbautechnik) PO17 - LA-B-BT-17",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/168/detail",
+    "lectures": 55,
+    "exercise": 48,
+    "practicum": 1,
+    "seminar": 15,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Lehramt Berufskolleg Bautechnik (große berufliche Fachrichtung Bautechnik mit kleiner beruflicher Fachrichtung Tiefbautechnik) PO19 - LA-B-BT-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/502/detail",
+    "lectures": 55,
+    "exercise": 48,
+    "practicum": 1,
+    "seminar": 15,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Lehramt Technik GyGe PO12 - LA-B-TE(GyGe)-12",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/180/detail",
+    "lectures": 24,
+    "exercise": "-",
+    "practicum": 6,
+    "seminar": 16,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Lehramt Technik HRSGe PO12 - LA-B-TE(HRSGe)-12",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/176/detail",
+    "lectures": 18,
+    "exercise": "-",
+    "practicum": 6,
+    "seminar": 16,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Casting Engineering) PO13 - B-MB(GT)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/39/detail",
+    "lectures": 87,
+    "exercise": 41,
+    "practicum": 16,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Energy and Process Engineering) PO13 - B-MB(EVT)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/31/detail",
+    "lectures": 86,
+    "exercise": 47,
+    "practicum": 11,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (General Mechaning Engineering) PO13 - B-MB(AMB)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/1/detail",
+    "lectures": 86,
+    "exercise": 46,
+    "practicum": 12,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Mechatronics) PO13 - B_MB(ME)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/33/detail",
+    "lectures": 84,
+    "exercise": 46,
+    "practicum": 14,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Metallurgy and Metal Processing) PO13 - B-MB(MVA)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/41/detail",
+    "lectures": 87,
+    "exercise": 44,
+    "practicum": 13,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Product Engineering) PO13 - B-MB(PE)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/35/detail",
+    "lectures": 85,
+    "exercise": 47,
+    "practicum": 13,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Ship and Offshore Technology) PO13 - B-MB(SMT)-13",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/37/detail",
+    "lectures": 86,
+    "exercise": 47,
+    "practicum": 11,
+    "seminar": 8,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering PO15 - B-ME-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/45/detail",
+    "lectures": 66,
+    "exercise": 36,
+    "practicum": 8,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering PO19 - B-ME-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/273/detail",
+    "lectures": 65,
+    "exercise": 36,
+    "practicum": 8,
+    "seminar": 1,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Casting Engineering) PO19 - B-MB(GT)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/243/detail",
+    "lectures": 85,
+    "exercise": 41,
+    "practicum": 18,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Energy and Process Engineering) PO19 - B-MB(EVT)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/219/detail",
+    "lectures": 86,
+    "exercise": 47,
+    "practicum": 12,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (General Mechanical Engineering) PO19 - B-MB(AMB)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/199/detail",
+    "lectures": 86,
+    "exercise": 46,
+    "practicum": 13,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Mechatronics) PO19 - B-MB(ME)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/223/detail",
+    "lectures": 84,
+    "exercise": 46,
+    "practicum": 14,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Metallurgy and Metal Processing) PO19 - B-MB(MVA)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/239/detail",
+    "lectures": 86,
+    "exercise": 43,
+    "practicum": 15,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Product Engineering) PO19 - B-MB(PE)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/227/detail",
+    "lectures": 85,
+    "exercise": 47,
+    "practicum": 14,
+    "seminar": 6,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Mechanical Engineering (Ship and Offshore Technology) PO19 - B-MB(SOT)-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/231/detail",
+    "lectures": 84,
+    "exercise": 46,
+    "practicum": 12,
+    "seminar": 8,
+    "number_of_semesters": 7
+  },
+  {
+    "study_program": "B.Sc. Medical Engineering PO15 - B-MedT-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/91/detail",
+    "lectures": 65,
+    "exercise": 27,
+    "practicum": 14,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Medical Engineering PO19 - B-MedT-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/195/detail",
+    "lectures": 65,
+    "exercise": 27,
+    "practicum": 14,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Metallurgy and Metal Forming PO15 - B-MMF-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/47/detail",
+    "lectures": 66,
+    "exercise": 34,
+    "practicum": 14,
+    "seminar": 7,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Metallurgy and Metal Forming PO19 - B-MMF-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/277/detail",
+    "lectures": 62,
+    "exercise": 32,
+    "practicum": 14,
+    "seminar": 1,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. NanoEngineering PO12 - B-Nano-12",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/5/detail",
+    "lectures": 63,
+    "exercise": 36,
+    "practicum": 16,
+    "seminar": "-",
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. NanoEngineering PO19 - B-Nano-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/247/detail",
+    "lectures": 59,
+    "exercise": 33,
+    "practicum": 15,
+    "seminar": 4,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Steel Technology and Metal Forming PO15 - B-STMF-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/141/detail",
+    "lectures": 66,
+    "exercise": 34,
+    "practicum": 14,
+    "seminar": 7,
+    "number_of_semesters": 8
+  },
+  {
+    "study_program": "B.Sc. Structural Engineering PO15 - B-SE-15",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/25/detail",
+    "lectures": 49,
+    "exercise": 41,
+    "practicum": 7,
+    "seminar": 10,
+    "number_of_semesters": 6
+  },
+  {
+    "study_program": "B.Sc. Structural Engineering PO19 - B-SE-19",
+    "Link": "https://www.uni-due.de/vdb/en_EN/studiengang/279/detail",
+    "lectures": 48,
+    "exercise": 41,
+    "practicum": 7,
+    "seminar": 4,
+    "number_of_semesters": 6
+  }
+]
