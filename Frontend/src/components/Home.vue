@@ -31,33 +31,38 @@
     </div>
 
     <div v-else>
-      <h2>We recommend you:</h2>
-      <h1 style="color: blue; text-align: center;">{{ result.field }}</h1>
+      <div v-if="isLoading">
+        Loading... Please wait.
+      </div>
+      <div v-else>
+        <h2>We recommend you:</h2>
+        <h1 style="color: blue; text-align: center;">{{ result.field }}</h1>
 
-      <p style="max-width: 400px; margin: 2rem auto;">{{ result.description }}</p>
+        <p style="max-width: 400px; margin: 2rem auto;">{{ result.description }}</p>
 
-      <div style="border-top: solid 1px gray; border-bottom: solid 1px gray; display: flex;">
-        <div style="border-right: solid 1px gray; flex: 1; padding: 2rem 2rem 2rem 0rem;">
-          <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs</h3>
+        <div style="border-top: solid 1px gray; border-bottom: solid 1px gray; display: flex;">
+          <div style="border-right: solid 1px gray; flex: 1; padding: 2rem 2rem 2rem 0rem;">
+            <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs</h3>
 
-          <bar-chart
-            :chartdata="barChartData"
-            :options="barOptions"
-          />
-        </div>
-        <div style="flex: 1; padding: 2rem 2rem 0rem 2rem;">
-          <p>Here are your bachelor's degree options</p>
+            <bar-chart
+              :chartdata="barChartData"
+              :options="barOptions"
+            />
+          </div>
+          <div style="flex: 1; padding: 2rem 2rem 0rem 2rem;">
+            <p>Here are your bachelor's degree options</p>
 
-          <select v-model="selectedDegree" size="5">
-            <option v-for="option, i in options" :value="option" @dblclick="openLink(option)">{{ i + 1 }}. {{ option }}</option>
-          </select>
+            <select v-model="selectedDegree" size="5">
+              <option v-for="(option, i) in options" :key="option" :value="option" @dblclick="openLink(option)">{{ i + 1 }}. {{ option }}</option>
+            </select>
 
-          <p>Click on degree to show hours info</p>
-          <p>Double click on degree to show main courses</p>
+            <p>Click on degree to show hours info</p>
+            <p>Double click on degree to show main courses</p>
 
-          <h3 style="text-align: center">HOURS</h3>
+            <h3 style="text-align: center">HOURS</h3>
 
-          <pie-chart :chartdata="pieChartData" :options="pieOptions" />
+            <pie-chart :chartdata="pieChartData" :options="pieOptions" />
+          </div>
         </div>
       </div>
 
@@ -73,6 +78,41 @@ import BarChart from "./BarChart.vue";
 import PieChart from "./PieChart.vue";
 import degreesInfo from "../degrees_info.json";
 
+const clusters = [
+  [
+    "Industrial Engineering (Mechanical Engineering and Management) PO19 - B-WI(MB)-19",
+    "B.Sc. Mechanical Engineering (Casting Engineering) PO19 - B-MB(GT)-19",
+    "B.Sc. Mechanical Engineering (Energy and Process Engineering) PO19 - B-MB(EVT)-19",
+    "B.Sc. Mechanical Engineering (General Mechanical Engineering) PO19 - B-MB(AMB)-19",
+    "B.Sc. Mechanical Engineering (Mechatronics) PO19 - B-MB(ME)-19",
+    "B.Sc. Mechanical Engineering (Metallurgy and Metal Processing) PO19 - B-MB(MVA)-19",
+    "B.Sc. Mechanical Engineering (Product Engineering) PO19 - B-MB(PE)-19",
+    "B.Sc. Mechanical Engineering (Ship and Offshore Technology) PO19 - B-MB(SOT)-19",
+  ],
+  [
+    "B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19",
+    "B.Sc. Applied Computer Sience PO19 - B-AI-19",
+    "B.Sc. Computer Engineering (Communications) PO19 - B-CE(Com)-19",
+    "B.Sc. Computer Engineering (Software Engineering) PO19 - B-CE(SE)-19",
+  ],
+  [
+    "B.Sc. Civil Engineering PO19 - B-BIW-19",
+    "B.Sc. Lehramt Berufskolleg Bautechnik (große berufliche Fachrichtung Bautechnik mit kleiner beruflicher Fachrichtung Tiefbautechnik) PO19 - LA-B-BT-19",
+    "B.Sc. Mechanical Engineering PO19 - B-ME-19",
+    "B.Sc. Metallurgy and Metal Forming PO19 - B-MMF-19",
+    "B.Sc. Steel Technology and Metal Forming PO15 - B-STMF-15",
+    "B.Sc. Structural Engineering PO19 - B-SE-19",
+  ],
+  [
+    "B.Sc. Electrical Engineering and Information Technology PO19 - B-EIT-19",
+    "B.Sc. Electrical and Electronic Engineering PO19 - B-EEE-19",
+    "B.Sc. Industrial Engineering (Electrical Power Technology and Management) PO19 - B-WI(EET)-19",
+    "B.Sc. Industrial Engineering (Information Technology and Management) PO19 - B-WI(IT)-19",
+    "B.Sc. Medical Engineering PO19 - B-MedT-19",
+    "B.Sc. NanoEngineering PO19 - B-Nano-19",
+  ],
+];
+
 export default {
   name: "App",
   components: {
@@ -87,6 +127,7 @@ export default {
 
     return {
       isSubmitted: false,
+      isLoading: false,
       statement: "",
       allDegrees,
       selectedDegree: "",
@@ -127,9 +168,31 @@ export default {
     }
   },
   methods: {
-    submit() {
+    async submit() {
+      if (this.statement == '') {
+        alert("Statement must not be empty!");
+      }
+
       this.isSubmitted = true;
-      this.options = ["B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19", "B.Sc. Structural Engineering PO19 - B-SE-19", "B.Sc. Medical Engineering PO15 - B-MedT-15"];
+      this.isLoading = true;
+
+      const result = await fetch("http://localhost:5000/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ a: this.statement })
+      });
+
+      this.isLoading = false;
+
+      const prediction = await result.json();
+
+      this.result.field = prediction.prediction;
+      this.options = clusters[prediction.cluster];
+
+      // this.options = ["B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19", "B.Sc. Structural Engineering PO19 - B-SE-19", "B.Sc. Medical Engineering PO15 - B-MedT-15"];
+
       this.barChartData = {
         labels: ["Computer Engineering", "Applied Computer Science", "Mechanical Engineering", "Mechanical Engineering", "Mechanical Engineering"],
         datasets: [
