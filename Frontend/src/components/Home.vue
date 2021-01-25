@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 0 4rem; max-width: 800px; margin: 4rem auto;">
+  <div style="padding: 0 4rem; max-width: 1440px; margin: 4rem auto;">
     <div v-if="!isSubmitted">
       <h1 style="text-align: center; margin-bottom: 4rem;">Dreams Degree Recomender</h1>
       <p>
@@ -38,11 +38,9 @@
         <h2>We recommend you:</h2>
         <h1 style="color: blue; text-align: center;">{{ result.field }}</h1>
 
-        <p style="max-width: 400px; margin: 2rem auto;">{{ result.description }}</p>
-
         <div style="border-top: solid 1px gray; border-bottom: solid 1px gray; display: flex;">
           <div style="border-right: solid 1px gray; flex: 1; padding: 2rem 2rem 2rem 0rem;">
-            <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs</h3>
+            <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs Based on Gensim Prediction:</h3>
 
             <bar-chart
               :chartdata="barChartData"
@@ -50,7 +48,7 @@
             />
           </div>
           <div style="flex: 1; padding: 2rem 2rem 0rem 2rem;">
-            <p>Here are your bachelor's degree options</p>
+            <p>Here are your bachelor's degree options based on Kmeans Clustering</p>
 
             <select v-model="selectedDegree" size="5">
               <option v-for="(option, i) in options" :key="option" :value="option" @dblclick="openLink(option)">{{ i + 1 }}. {{ option }}</option>
@@ -78,41 +76,6 @@ import BarChart from "./BarChart.vue";
 import PieChart from "./PieChart.vue";
 import degreesInfo from "../degrees_info.json";
 
-const clusters = [
-  [
-    "Industrial Engineering (Mechanical Engineering and Management) PO19 - B-WI(MB)-19",
-    "B.Sc. Mechanical Engineering (Casting Engineering) PO19 - B-MB(GT)-19",
-    "B.Sc. Mechanical Engineering (Energy and Process Engineering) PO19 - B-MB(EVT)-19",
-    "B.Sc. Mechanical Engineering (General Mechanical Engineering) PO19 - B-MB(AMB)-19",
-    "B.Sc. Mechanical Engineering (Mechatronics) PO19 - B-MB(ME)-19",
-    "B.Sc. Mechanical Engineering (Metallurgy and Metal Processing) PO19 - B-MB(MVA)-19",
-    "B.Sc. Mechanical Engineering (Product Engineering) PO19 - B-MB(PE)-19",
-    "B.Sc. Mechanical Engineering (Ship and Offshore Technology) PO19 - B-MB(SOT)-19",
-  ],
-  [
-    "B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19",
-    "B.Sc. Applied Computer Sience PO19 - B-AI-19",
-    "B.Sc. Computer Engineering (Communications) PO19 - B-CE(Com)-19",
-    "B.Sc. Computer Engineering (Software Engineering) PO19 - B-CE(SE)-19",
-  ],
-  [
-    "B.Sc. Civil Engineering PO19 - B-BIW-19",
-    "B.Sc. Lehramt Berufskolleg Bautechnik (große berufliche Fachrichtung Bautechnik mit kleiner beruflicher Fachrichtung Tiefbautechnik) PO19 - LA-B-BT-19",
-    "B.Sc. Mechanical Engineering PO19 - B-ME-19",
-    "B.Sc. Metallurgy and Metal Forming PO19 - B-MMF-19",
-    "B.Sc. Steel Technology and Metal Forming PO15 - B-STMF-15",
-    "B.Sc. Structural Engineering PO19 - B-SE-19",
-  ],
-  [
-    "B.Sc. Electrical Engineering and Information Technology PO19 - B-EIT-19",
-    "B.Sc. Electrical and Electronic Engineering PO19 - B-EEE-19",
-    "B.Sc. Industrial Engineering (Electrical Power Technology and Management) PO19 - B-WI(EET)-19",
-    "B.Sc. Industrial Engineering (Information Technology and Management) PO19 - B-WI(IT)-19",
-    "B.Sc. Medical Engineering PO19 - B-MedT-19",
-    "B.Sc. NanoEngineering PO19 - B-Nano-19",
-  ],
-];
-
 export default {
   name: "App",
   components: {
@@ -132,8 +95,7 @@ export default {
       allDegrees,
       selectedDegree: "",
       result: {
-        field: "Computer Engineering",
-        description: "This can be an overall statement like \"I enjoyed math\" a more specific are like \"Geometry and analysis were the most interesting topics\"."
+        field: "Computer Engineering"
       },
       options: [],
       barChartData: null,
@@ -143,6 +105,10 @@ export default {
         scales: {
           yAxes: [{ stacked: true }],
           xAxes: [{ stacked: true }]
+        },
+        onClick: (e) => {
+          let x = e.target.getElementsAtEvent(e);
+          console.log(x);
         }
       },
       pieChartData: null,
@@ -171,6 +137,7 @@ export default {
     async submit() {
       if (this.statement == '') {
         alert("Statement must not be empty!");
+        return;
       }
 
       this.isSubmitted = true;
@@ -184,26 +151,26 @@ export default {
         body: JSON.stringify({ a: this.statement })
       });
 
-      this.isLoading = false;
-
       const prediction = await result.json();
 
       this.result.field = prediction.prediction;
-      this.options = clusters[prediction.cluster];
+      this.options = prediction.clusterList;
 
-      // this.options = ["B.Sc. Applied Cognitive and Media Science PO19 - B-KM-19", "B.Sc. Structural Engineering PO19 - B-SE-19", "B.Sc. Medical Engineering PO15 - B-MedT-15"];
+      const related = prediction.gensimList;
 
       this.barChartData = {
-        labels: ["Computer Engineering", "Applied Computer Science", "Mechanical Engineering", "Mechanical Engineering", "Mechanical Engineering"],
+        labels: related.map(x => x.program.slice(6).split("  PO")[0]),
         datasets: [
           {
-            label: "Related keywords",
+            label: "Related keywords Percentage",
             backgroundColor: "#70ad47",
-            data: [8, 7, 5, 2, 1]
+            data: related.map(x => Math.round(x.similarity * 100))
           }
         ]
       };
       this.selectedDegree = this.options[0];
+
+      this.isLoading = false;
     },
     reset() {
       this.isSubmitted = false;

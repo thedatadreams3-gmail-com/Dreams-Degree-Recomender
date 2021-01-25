@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="navbar">
-      <a href="#" @click="page = 'home'">Home</a>
+      <a href="#" @click="reset">Home</a>
       <a href="#" @click="page = 'about'">About</a>
       <div class="dropdown">
         <button class="dropbtn">
@@ -29,7 +29,12 @@ export default {
   },
   data: () => ({
     page: "home"
-  })
+  }),
+  methods: {
+    reset() {
+      window.location.reload();
+    }
+  }
 };
 </script>
 
