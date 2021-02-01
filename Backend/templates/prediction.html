@@ -13,7 +13,7 @@
 
 <br><br>
 
-<h2>Kmeans Prediction:</h2>
+<h2>Kmeans Cluster:</h2>
 <h2>Cluster= {{ cl }}</h2>
 {% for item in clusterList %}
 <h3>{{item}}</h3>
@@ -24,6 +24,14 @@
 <br><br>
 <h2>Gensim Prediction:</h2>
 {% for item in gensimlst %}
+<h3>{{item}}</h3>
+
+{% endfor %}
+
+
+<br><br>
+<h2>TF-IDF Prediction:</h2>
+{% for item in furkansList %}
 <h3>{{item}}</h3>
 
 {% endfor %}
