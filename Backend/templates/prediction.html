@@ -9,10 +9,6 @@
     <h1>{{ pred }}</h1>
 
 
-<h2> We recommend you as well based on Kmeans Clustering: </h2>
-
-<br><br>
-
 <h2>Kmeans Cluster:</h2>
 <h2>Cluster= {{ cl }}</h2>
 {% for item in clusterList %}
@@ -20,9 +16,15 @@
 
 {% endfor %}
 
+<br><br>
+<h2>Gensim Degree Prediction:</h2>
+{% for item in gensimDegree %}
+<h3>{{item}}</h3>
+
+{% endfor %}
 
 <br><br>
-<h2>Gensim Prediction:</h2>
+<h2>Gensim Course Prediction:</h2>
 {% for item in gensimlst %}
 <h3>{{item}}</h3>
 

@@ -3,7 +3,7 @@
     <div style="width: 200px; background-color: #eee" v-if="isSubmitted">
       <ul style="list-style: none; padding: 5px">
         <li><a class="menu-item" @click="selectedItem = 'all'">All Predictions</a></li>
-        <li><a class="menu-item" @click="selectedItem = 'kmeans'">Kmeans Cluster</a></li>
+        <li><a class="menu-item" @click="selectedItem = 'kmeans'">SVM Prediction</a></li>
         <li><a class="menu-item" @click="selectedItem = 'gensim'">Gensim Prediction</a></li>
         <li><a class="menu-item" @click="selectedItem = 'tf-idf'">TF-IDF Prediction</a></li>
       </ul>
@@ -47,28 +47,42 @@
           <div v-if="selectedItem == 'kmeans' || selectedItem == 'gensim' || selectedItem == 'tf-idf'">
             <h2>We recommend you:</h2>
             <h1 style="color: blue; text-align: center;">{{ recommendation }}</h1>
-            <img :src="`/images/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto">
+            <table>
+              <tr>
+                <td>
+                  <h2>TF IDF Word Cloud:</h2>
+                  <img :src="`/images/tf-idf/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto">
+                </td>
+                <td>
+                  <h2>Count Word Cloud:</h2>
+                  <img :src="`/images/count/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto">
+                </td>
+              </tr>
+            </table>                
+            
           </div>
 
           <div style="border-top: solid 1px gray; border-bottom: solid 1px gray;">
             <div v-if="selectedItem == 'all'" style="width: 100%">
               <h2>Our recommendations are</h2>
               <div>
-                <h3 class="link" @click="selectedItem = 'kmeans'">Kmeans Cluster</h3>
-                <ol>
-                  <li v-for="option in options" :key="option">{{ option }}</li>
-                </ol>
+                <h3 class="link" @click="selectedItem = 'kmeans'">SVM Prediction</h3>
+                <p style="font-weight: 700; font-size: 1.1em">{{ result.field }}</p>
               </div>
               <div style="border-top: dashed 2px #bbb;">
                 <h3 class="link" @click="selectedItem = 'gensim'">Gensim Prediction</h3>
                 <ol>
-                  <li v-for="option in related" :key="option.program">{{ option.program }}</li>
+                  <li style="font-weight: 700; font-size: 1.1em" v-if="options.length > 0">{{ options[0] }}</li>
+                  <li style="font-size: 1.1em" v-if="options.length > 1">{{ options[1] }}</li>
+                  <li v-if="options.length > 2">{{ options[2] }}</li>
                 </ol>
               </div>
               <div style="border-top: dashed 2px #bbb;">
                 <h3 class="link" @click="selectedItem = 'tf-idf'">TF-IDF Prediction</h3>
                 <ol>
-                  <li v-for="option in furkansList" :key="option[1]">{{ option[1] }}</li>
+                  <li style="font-weight: 700; font-size: 1.1em" v-if="furkansList.length > 0">{{ furkansList[0][1] }}</li>
+                  <li style="font-size: 1.1em" v-if="furkansList.length > 1">{{ furkansList[1][1] }}</li>
+                  <li v-if="furkansList.length > 2">{{ furkansList[2][1] }}</li>
                 </ol>
               </div>
             </div>
@@ -79,6 +93,19 @@
                 :chartdata="barChartData"
                 :options="barOptions"
               />
+
+              <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
+
+              <select v-model="selectedDegree" size="5">
+                <option v-for="(option, i) in this.related" :key="option.program" :value="option.program" @dblclick="openLink(option.program)">{{ i + 1 }}. {{ option.program }}</option>
+              </select>
+
+              <p>Click on degree to show hours info</p>
+              <p>Double click on degree to show main courses</p>
+
+              <h3 style="text-align: center">HOURS</h3>
+
+              <pie-chart :chartdata="pieChartData" :options="pieOptions" />
             </div>
             <div v-if="selectedItem == 'kmeans'">
               <p>Here are your bachelor's degree options based on Kmeans Clustering</p>
@@ -101,6 +128,19 @@
                 :chartdata="barChart2Data"
                 :options="barOptions"
               />
+
+              <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
+
+              <select v-model="selectedDegree" size="5">
+                <option v-for="(option, i) in this.furkansList" :key="option[1]" :value="option[1]" @dblclick="openLink(option[1])">{{ i + 1 }}. {{ option[1] }}</option>
+              </select>
+
+              <p>Click on degree to show hours info</p>
+              <p>Double click on degree to show main courses</p>
+
+              <h3 style="text-align: center">HOURS</h3>
+
+              <pie-chart :chartdata="pieChartData" :options="pieOptions" />
             </div>
           </div>
         </div>
@@ -222,7 +262,7 @@ export default {
           {
             label: "Related keywords Percentage",
             backgroundColor: "#70ad47",
-            data: this.related.map(x => Math.round(x.similarity * 100))
+            data: this.related.map(x => parseFloat(x.similarity * 100).toFixed(2))
           }
         ]
       };
@@ -232,9 +272,9 @@ export default {
         labels: this.furkansList.map(x => x[1]),
         datasets: [
           {
-            label: "Related keywords Percentage",
+            label: "TF-IDF Similarity",
             backgroundColor: "#70ad47",
-            data: this.furkansList.map(x => Math.round(x[0]))
+            data: this.furkansList.map(x => parseFloat(x[0]).toFixed(2))
           }
         ]
       };
