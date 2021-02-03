@@ -8,7 +8,7 @@
         <li><a class="menu-item" @click="selectedItem = 'tf-idf'">TF-IDF Prediction</a></li>
       </ul>
     </div>
-    <div style="padding: 0 4rem; max-width: 1440px; margin: 4rem auto; display: flex; align-items: stretch; justify-content: stretch;">
+    <div style="padding: 0 4rem; margin: 4rem auto; display: flex; align-items: stretch; justify-content: stretch;">
       <div v-if="!isSubmitted">
         <h1 style="text-align: center; margin-bottom: 4rem;">Dreams Degree Recommender</h1>
         <p>
@@ -43,7 +43,7 @@
         <div v-if="isLoading">
           Loading... Please wait.
         </div>
-        <div v-else style="width: 1000px">
+        <div v-else>
           <div v-if="selectedItem == 'kmeans' || selectedItem == 'gensim' || selectedItem == 'tf-idf'">
             <h2>We recommend you:</h2>
             <h1 style="color: blue; text-align: center;">{{ recommendation }}</h1>
@@ -51,11 +51,17 @@
               <tr>
                 <td>
                   <h2>TF IDF Word Cloud:</h2>
-                  <img :src="`/images/tf-idf/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto">
+                  <img :src="`/images/tf-idf/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto" @click="showModal('tf-idf')">
+                  <modal name="tf-idf" :width="1000" :height="500">
+                    <img :src="`/images/tf-idf/${recommendation}.png`" style="width: 100%; transform: scale(1.2); height: auto" @click="$modal.hide('tf-idf')">
+                  </modal>
                 </td>
                 <td>
                   <h2>Count Word Cloud:</h2>
-                  <img :src="`/images/count/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto">
+                  <img :src="`/images/count/${recommendation}.png`" style="width: 600px; height: auto; display: block; margin: auto" @click="showModal('count')">
+                  <modal name="count" :width="1000" :height="500">
+                    <img :src="`/images/count/${recommendation}.png`" style="width: 100%; transform: scale(1.2); height: auto" @click="$modal.hide('count')">
+                  </modal>
                 </td>
               </tr>
             </table>                
@@ -72,9 +78,9 @@
               <div style="border-top: dashed 2px #bbb;">
                 <h3 class="link" @click="selectedItem = 'gensim'">Gensim Prediction</h3>
                 <ol>
-                  <li style="font-weight: 700; font-size: 1.1em" v-if="options.length > 0">{{ options[0] }}</li>
-                  <li style="font-size: 1.1em" v-if="options.length > 1">{{ options[1] }}</li>
-                  <li v-if="options.length > 2">{{ options[2] }}</li>
+                  <li style="font-weight: 700; font-size: 1.1em" v-if="related.length > 0">{{ related[0].program }}</li>
+                  <li style="font-size: 1.1em" v-if="related.length > 1">{{ related[1].program }}</li>
+                  <li v-if="related.length > 2">{{ related[2].program }}</li>
                 </ol>
               </div>
               <div style="border-top: dashed 2px #bbb;">
@@ -87,7 +93,12 @@
               </div>
             </div>
             <div v-if="selectedItem == 'gensim'">
-              <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs Based on Gensim Prediction:</h3>
+              <div style="display: flex; margin: 1rem; justify-content: center; grid-gap: 1rem;">
+                <button :class="`radio ${selectedCount == 5 ? 'active' : ''}`" @click="selectedCount = 5">Top 5</button>
+                <button :class="`radio ${selectedCount == 10 ? 'active' : ''}`" @click="selectedCount = 10">Top 10</button>
+              </div>
+
+              <h3 style="text-align: center">Top {{ Math.min(selectedCount, barChartData.labels.length) }}: Study Programs Based on Gensim Prediction:</h3>
 
               <bar-chart
                 :chartdata="barChartData"
@@ -95,6 +106,17 @@
               />
 
               <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
+
+              <h3 style="text-align: center">Top {{ Math.min(selectedCount, barChart3Data.labels.length) }}: Study Courses Based on Gensim Prediction:</h3>
+
+              <bar-chart
+                :chartdata="barChart3Data"
+                :options="barOptions"
+              />
+
+              <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
+
+              <h2>Gensim Hours</h2>
 
               <select v-model="selectedDegree" size="5">
                 <option v-for="(option, i) in this.related" :key="option.program" :value="option.program" @dblclick="openLink(option.program)">{{ i + 1 }}. {{ option.program }}</option>
@@ -122,7 +144,12 @@
               <pie-chart :chartdata="pieChartData" :options="pieOptions" />
             </div>
             <div v-if="selectedItem == 'tf-idf'">
-              <h3 style="text-align: center">Top {{ barChartData.labels.length }}: Study Programs Based on TF-IDF Prediction:</h3>
+              <div style="display: flex; margin: 1rem; justify-content: center; grid-gap: 1rem;">
+                <button :class="`radio ${selectedCount == 5 ? 'active' : ''}`" @click="selectedCount = 5">Top 5</button>
+                <button :class="`radio ${selectedCount == 10 ? 'active' : ''}`" @click="selectedCount = 10">Top 10</button>
+              </div>
+
+              <h3 style="text-align: center">Top {{ Math.min(selectedCount, barChart2Data.labels.length) }}: Study Programs Based on TF-IDF Prediction:</h3>
 
               <bar-chart
                 :chartdata="barChart2Data"
@@ -130,6 +157,8 @@
               />
 
               <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
+
+              <h2>TF-IDF Hours</h2>
 
               <select v-model="selectedDegree" size="5">
                 <option v-for="(option, i) in this.furkansList" :key="option[1]" :value="option[1]" @dblclick="openLink(option[1])">{{ i + 1 }}. {{ option[1] }}</option>
@@ -183,7 +212,6 @@ export default {
       related: [],
       options: [],
       furkansList: [],
-      barChartData: null,
       barOptions: {
         responsive: true,
         maintainAspectRatio: false,
@@ -201,6 +229,9 @@ export default {
         responsive: true,
         maintainAspectRatio: false
       },
+      tfIdfPopped: false,
+      countPopped: false,
+      selectedCount: 10,
     };
   },
   watch: {
@@ -227,7 +258,43 @@ export default {
         return this.furkansList.length === 0 ? "" : this.furkansList[0][1];
       }
       return this.result.field;
-    }
+    },
+    barChartData() {
+      return {
+        labels: this.related.slice(0, this.selectedCount).map(x => x.program),
+        datasets: [
+          {
+            label: "Related keywords Percentage",
+            backgroundColor: "#70ad47",
+            data: this.related.slice(0, this.selectedCount).map(x => (parseFloat(x.similarity) * 100).toFixed(2))
+          }
+        ]
+      };
+    },
+    barChart2Data() {
+      return {
+        labels: this.furkansList.slice(0, this.selectedCount).map(x => x[1]),
+        datasets: [
+          {
+            label: "TF-IDF Similarity",
+            backgroundColor: "#70ad47",
+            data: this.furkansList.slice(0, this.selectedCount).map(x => parseFloat(x[0]).toFixed(2))
+          }
+        ]
+      };
+    },
+    barChart3Data() {
+      return {
+        labels: this.gensimCourse.slice(0, this.selectedCount).map(x => `${x.studyProgram.slice(0, x.studyProgram.indexOf('  PO'))} - ${x.courses}`),
+        datasets: [
+          {
+            label: "Related keywords Percentage",
+            backgroundColor: "#70ad47",
+            data: this.gensimCourse.slice(0, this.selectedCount).map(x => (parseFloat(x.similarity) * 100).toFixed(2))
+          }
+        ]
+      };
+    },
   },
   methods: {
     async submit() {
@@ -254,30 +321,9 @@ export default {
 
       this.related = prediction.gensimList;
       this.furkansList = prediction.furkansList;
+      this.gensimCourse = prediction.gensimCourse;
       this.furkansList.reverse();
-
-      this.barChartData = {
-        labels: this.related.map(x => x.program),
-        datasets: [
-          {
-            label: "Related keywords Percentage",
-            backgroundColor: "#70ad47",
-            data: this.related.map(x => parseFloat(x.similarity * 100).toFixed(2))
-          }
-        ]
-      };
       this.selectedDegree = this.options[0];
-
-      this.barChart2Data = {
-        labels: this.furkansList.map(x => x[1]),
-        datasets: [
-          {
-            label: "TF-IDF Similarity",
-            backgroundColor: "#70ad47",
-            data: this.furkansList.map(x => parseFloat(x[0]).toFixed(2))
-          }
-        ]
-      };
 
       this.isLoading = false;
     },
@@ -289,7 +335,10 @@ export default {
     openLink(degreeName) {
       const degreeInfo = this.allDegrees[degreeName];
       window.open(degreeInfo.Link, "_blank");
-    }
+    },
+    showModal(name) {
+      this.$modal.show(name);
+    },
   }
 };
 </script>
@@ -308,5 +357,24 @@ export default {
 .link {
   color: blue;
   cursor: pointer;
+}
+.popup {
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+.popup.popped {
+  transform: scale(1.5);
+}
+.radio {
+  border: solid 1px #999;
+  border-radius: 10px;
+  background-color: #eee;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+}
+.radio.active {
+  background-color: #333;
+  color: white;
 }
 </style>

@@ -158,11 +158,11 @@ def home():
     #furkan code
     keywords = data1
     keywords_list = keywords.split()
-    print (keywords_list)
+    #print (keywords_list)
     #print('keywords:', keywords_list)
     #get all matching keywords from all collected keywords with tfidf value
     all_course_keywords_tfidf = getCoursesTfidf(all_courses_tfidf,keywords_list)
-    print(all_course_keywords_tfidf)
+    #print(all_course_keywords_tfidf)
 
     #get each course + tidf_results(summed up) 
     course_results = []
@@ -185,7 +185,7 @@ def home():
 
     #sum up all max tfidf to get highest value a course can have 
     max_sum_tfidf = sum(v[1] for v in max_k_tfidfs)
-    print(max_sum_tfidf)
+    #print(max_sum_tfidf)
 
     #get 'similarity' for each course regarding how much it matches the hundred percent
     #final_course_percentages = []
@@ -263,7 +263,11 @@ def home():
 
     #converting back to lists
     for index, row in pred.iterrows():
-        gensimlst.append(row['Study Program'] + ' - ' + row['Courses'] + ' - ' + row['Similarity'])
+        gensimlst.append({
+            'studyProgram': row['Study Program'],
+            'courses': row['Courses'],
+            'similarity': row['Similarity']
+        })
 
     #Gensim Degree Model Prediction
     new_Degree=gensimDegreeModel.infer_vector(data1.split())
@@ -281,7 +285,8 @@ def home():
         'prediction': prediction,
         'clusterList': clusterList,
         'gensimList': gensimDegree,
-        'furkansList': final_SP_results[-10:]
+        'furkansList': final_SP_results[-10:],
+        'gensimCourse': gensimlst
         })
     
 

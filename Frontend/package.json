@@ -12,7 +12,8 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-cal": "^3.6.2",
-    "vue-chartjs": "^3.5.0"
+    "vue-chartjs": "^3.5.0",
+    "vue-js-modal": "^2.0.0-rc.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
