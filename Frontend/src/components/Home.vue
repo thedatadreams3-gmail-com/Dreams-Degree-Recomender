@@ -3,8 +3,8 @@
     <div style="width: 200px; background-color: #eee" v-if="isSubmitted">
       <ul style="list-style: none; padding: 5px">
         <li><a class="menu-item" @click="selectedItem = 'all'">All Predictions</a></li>
-        <li><a class="menu-item" @click="selectedItem = 'kmeans'">SVM Prediction</a></li>
         <li><a class="menu-item" @click="selectedItem = 'gensim'">Gensim Prediction</a></li>
+        <li><a class="menu-item" @click="selectedItem = 'kmeans'">SVM Prediction</a></li>
         <li><a class="menu-item" @click="selectedItem = 'tf-idf'">TF-IDF Prediction</a></li>
       </ul>
     </div>
@@ -45,6 +45,15 @@
         </div>
         <div v-else>
           <div v-if="selectedItem == 'kmeans' || selectedItem == 'gensim' || selectedItem == 'tf-idf'">
+            <div v-if="selectedItem == 'kmeans'">
+              <h1>SVM Prediction:</h1>
+            </div>
+            <div v-if="selectedItem == 'gensim'">
+              <h1>Gensim Prediction:</h1>
+            </div>
+            <div v-if="selectedItem == 'tf-idf'">
+              <h1>TF-IDF Prediction:</h1>
+            </div>                        
             <h2>We recommend you:</h2>
             <h1 style="color: blue; text-align: center;">{{ recommendation }}</h1>
             <table>
@@ -70,18 +79,20 @@
 
           <div style="border-top: solid 1px gray; border-bottom: solid 1px gray;">
             <div v-if="selectedItem == 'all'" style="width: 100%">
-              <h2>Our recommendations are</h2>
+              <h1>Our recommendations are</h1>
+              <h2>Semantics Predictions:</h2>
               <div>
-                <h3 class="link" @click="selectedItem = 'kmeans'">SVM Prediction</h3>
-                <p style="font-weight: 700; font-size: 1.1em">{{ result.field }}</p>
-              </div>
-              <div style="border-top: dashed 2px #bbb;">
-                <h3 class="link" @click="selectedItem = 'gensim'">Gensim Prediction</h3>
+               <h3 class="link" @click="selectedItem = 'gensim'">Gensim Prediction</h3>
                 <ol>
                   <li style="font-weight: 700; font-size: 1.1em" v-if="related.length > 0">{{ related[0].program }}</li>
                   <li style="font-size: 1.1em" v-if="related.length > 1">{{ related[1].program }}</li>
                   <li v-if="related.length > 2">{{ related[2].program }}</li>
-                </ol>
+                </ol>                
+              </div>
+              <div style="border-top: solid 1px gray;">
+                <h2>Non-Semantics Predictions:</h2>
+                <h3 class="link" @click="selectedItem = 'kmeans'">SVM Prediction</h3>
+                <p style="font-weight: 700; font-size: 1.1em">{{ result.field }}</p>
               </div>
               <div style="border-top: dashed 2px #bbb;">
                 <h3 class="link" @click="selectedItem = 'tf-idf'">TF-IDF Prediction</h3>
@@ -107,6 +118,10 @@
 
               <div style="border-top: dashed 2px #bbb; margin: 2rem auto;"></div>
 
+              <div style="display: flex; margin: 1rem; justify-content: center; grid-gap: 1rem;">
+                <button :class="`radio ${selectedCount2 == 5 ? 'active' : ''}`" @click="selectedCount2 = 5">Top 5</button>
+                <button :class="`radio ${selectedCount2 == 10 ? 'active' : ''}`" @click="selectedCount2 = 10">Top {{  gensimCourse.length }}</button>
+              </div>
               <h3 style="text-align: center">Top {{ Math.min(selectedCount, barChart3Data.labels.length) }}: Study Courses Based on Gensim Prediction:</h3>
 
               <bar-chart
@@ -232,6 +247,7 @@ export default {
       tfIdfPopped: false,
       countPopped: false,
       selectedCount: 10,
+      selectedCount2: 10,
     };
   },
   watch: {
@@ -264,7 +280,7 @@ export default {
         labels: this.related.slice(0, this.selectedCount).map(x => x.program),
         datasets: [
           {
-            label: "Related keywords Percentage",
+            label: "Cosine Similarity Keywords Percentage",
             backgroundColor: "#70ad47",
             data: this.related.slice(0, this.selectedCount).map(x => (parseFloat(x.similarity) * 100).toFixed(2))
           }
@@ -276,7 +292,7 @@ export default {
         labels: this.furkansList.slice(0, this.selectedCount).map(x => x[1]),
         datasets: [
           {
-            label: "TF-IDF Similarity",
+            label: "TF-IDF Sum Up",
             backgroundColor: "#70ad47",
             data: this.furkansList.slice(0, this.selectedCount).map(x => parseFloat(x[0]).toFixed(2))
           }
@@ -285,12 +301,12 @@ export default {
     },
     barChart3Data() {
       return {
-        labels: this.gensimCourse.slice(0, this.selectedCount).map(x => `${x.studyProgram.slice(0, x.studyProgram.indexOf('  PO'))} - ${x.courses}`),
+        labels: this.gensimCourse.slice(0, this.selectedCount2).map(x => `${x.studyProgram.slice(0, x.studyProgram.indexOf('  PO'))} - ${x.courses}`),
         datasets: [
           {
-            label: "Related keywords Percentage",
+            label: "Cosine Similarity Keywords Percentage",
             backgroundColor: "#70ad47",
-            data: this.gensimCourse.slice(0, this.selectedCount).map(x => (parseFloat(x.similarity) * 100).toFixed(2))
+            data: this.gensimCourse.slice(0, this.selectedCount2).map(x => (parseFloat(x.similarity) * 100).toFixed(2))
           }
         ]
       };
