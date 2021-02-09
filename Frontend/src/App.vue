@@ -1,31 +1,54 @@
 <template>
   <div id="app">
     <div class="navbar">
-      <a href="#" @click="reset">Home</a>
-      <a href="#" @click="page = 'about'">About</a>
+      <!-- all page  -->
+      <a class="" href="#" @click="page = 'start'">Start</a>
+      <a class="" href="#" @click="page = 'home'">Home</a>
+      <a class="" href="#" @click="page = 'documentation'">Documentation</a>
+      <a class="" href="#" @click="page = 'about'">About</a>
+      <a class="" href="#" @click="page = 'recomendercourselist'"
+        >Recomender Courses List</a
+      >
       <div class="dropdown">
         <button class="dropbtn">
           Sources
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="https://www.uni-due.de/vdb/studiengang/liste" target="_blank">Study Courses List</a>
+          <a href="https://www.uni-due.de/vdb/studiengang/liste" target="_blank">Uni all Courses List</a>
         </div>
       </div>
     </div>
+    <!-- all page routing if you click page will auto route -->
+    <start-page v-if="page == 'start'" />
     <home-page v-if="page == 'home'" />
     <about-page v-if="page == 'about'" />
+    <documentation-page v-if="page == 'documentation'" />
+    <recomender-course-list v-if="page == 'recomendercourselist'" />
+
+
+    <div>
+      <a href="https://www.uni-due.de/en/" target="_blank">
+        <img class="topright" src="../src/assets/images/UDE_LOGO.png" />
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
+import StartPage from "./components/Start.vue";
 import HomePage from "./components/Home.vue";
 import AboutPage from "./components/About.vue";
+import DocumentationPage from "./components/Documentation.vue";
+import RecomenderCourseList from "./components/RecomenderCourseList.vue";
 
 export default {
   components: {
+    StartPage,
     HomePage,
-    AboutPage
+    AboutPage,
+    DocumentationPage,
+    RecomenderCourseList,
   },
   data: () => ({
     page: "home"
