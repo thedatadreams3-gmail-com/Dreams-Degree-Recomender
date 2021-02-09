@@ -34,7 +34,7 @@
       <div v-if="!isSubmitted">
         <h1 class="headingTitle">Dreams Degree Recommender</h1>
         <h2 class="task">
-          <strong>Task:</strong> Write about postive school experiences you had
+          <strong>Task:</strong> Write about positive school experiences you had
           in terms of subjects.
         </h2>
 
@@ -48,7 +48,7 @@
         </h3>
 
         <h4 class="taskExplainUni">
-          If you have any university or school related links like
+          If you have any university or school-related links like
           <strong class="stateMent">programming, java or HTML</strong>, Feel
           free to share them.
         </h4>
@@ -56,7 +56,7 @@
         <h5>
           <strong class="notes">Note:</strong>
           <span class="note"
-            > Do not use any negative statments like "I don't/ didn't enjoy...."
+            > Do not use any negative statements like "I don't/ didn't enjoy...."
             not tell about things you don't like!</span
           >
         </h5>
