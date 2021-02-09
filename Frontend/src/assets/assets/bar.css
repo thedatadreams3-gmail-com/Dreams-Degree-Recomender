@@ -1,0 +1,380 @@
+/* home page CSS */
+.mainCss {
+  /* padding: 0 4rem; */
+  max-width: 1100px;
+  margin: 4rem auto;
+  min-height: 100%;
+  /* width: auto; */
+  /* width: 100%;  */
+  /* display: flex;  */
+  /* flex-direction: row */
+}
+
+.sideNav {
+  width: 200px;
+  background-color: #eee;
+}
+.headingTitle {
+  color: #003b7a;
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+  /* font-style: oblique 4deg; */
+}
+
+.task {
+  color: #2b394a;
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 15px;
+  text-align: center;
+}
+
+.taskExplain {
+  color: #2b394a;
+  font-family: "Martel", serif;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 25px;
+  text-align: center;
+}
+
+.taskExplainUni {
+  color: #2b394a;
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  font-weight: normal;
+  line-height: 25px;
+  text-align: center;
+}
+
+.notes {
+  font-family: "Martel", serif;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: bold;
+}
+.note {
+  color: rgb(236, 65, 65);
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.stateMent {
+  color: #003b7a;
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  /* border: solid 3px rgb(75, 179, 211); */
+}
+
+.inputText {
+  /* font-family: "Lora", serif; */
+  font-size: 35px;
+  width: 100%;
+  border: solid 3px rgb(75, 142, 187);
+  border-radius: 5px;
+  background-color: rgb(169, 204, 216);
+  display: block;
+  outline: none;
+  line-height: 2.5rem;
+  margin-top: 10px;
+  padding-top: 25px;
+}
+
+.submitButn {
+  color: #fff;
+  background-color: #003b7a;
+  border-color: #003b7a;
+  border-radius: 5px;
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  outline: none;
+}
+
+.resetButn {
+  color: #fff;
+  background-color: #003b7a;
+  border-color: #003b7a;
+  border-radius: 5px;
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  outline: none;
+  margin-left: 45%;
+}
+
+/* FOOTER css code */
+
+.footer {
+  background: rgb(39, 45, 53);
+  color: #ffffff;
+  height: 34rem;
+  position: relative;
+  width: 100%;
+}
+
+.footer .footer-content {
+  height: 350px;
+  display: flex;
+}
+
+.footer .footer-content .footer-section {
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  padding: 25px;
+}
+
+.footer .footer-content h1,
+.footer .footer-content h2 {
+  color: white;
+}
+
+.footer .footer-content .about h1 span {
+  color: #2f81df;
+}
+.footer .footer-content .about p {
+  text-align: center;
+  font-size: 18px;
+}
+
+
+/*  University and out logo CSS */
+.footer .footer-content .uniLogo img {
+  margin: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 100%;
+  border-radius: 10px;
+  background: rgb(246, 248, 248);
+}
+
+.footer .footer-content .teamLogo img {
+  margin: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  border-radius: 40px;
+  background: rgb(250, 250, 250);
+}
+
+.footer .footer-content .about .socials a:hover {
+  border: 1px solid white;
+  color: white;
+  transition: all 0.3s;
+}
+
+.footer .footer-content .links ul a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  transition: all 0.3s;
+  color: aliceblue;
+}
+
+.footer .footer-content .links ul a:hover {
+  color: white;
+  margin-left: 15px;
+  transition: all 0.3s;
+  color: #05f7ff;
+}
+
+.footer .footer-bottom {
+  background: #343a40;
+  color: #fffbfb;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+
+/* Prediction Page CSS */
+
+.selectionDegree {
+  width: 100%;
+  text-align: center;
+  color: #003b7a;
+  font-size: 20px;
+  border-radius: 5px;
+  border-color: #2f81df;
+  background-color: rgb(255, 255, 255);
+}
+
+/* About page CSS */
+
+.aboutTopPad {
+  padding: 10px 5px 15px 20px;
+  margin-top: 55px;
+  text-align: justify;
+  font-size: 1.2rem;
+  font-family: Open Sans;
+  color: #003b7a;
+}
+.mainHeding {
+  text-align: center;
+}
+
+.aboutAs {
+  text-align: center;
+}
+
+/* Documentation page CSS */
+
+.allPad {
+  padding: 10px 5px 15px 20px;
+  margin-top: 55px;
+  font-size: 17px;
+  font-family: Open Sans;
+  color: #003b7a;
+}
+
+.allPad h2 h3 {
+  text-align: justify;
+  font-family: "Martel", serif;
+  margin: 10px;
+  padding: 0;
+  /* margin: 10px; */
+}
+.allPad h3 p span {
+  font-size: x-large;
+  font-weight: 600;
+  /* margin: 10px; */
+}
+.heading_1 {
+  text-align: center;
+  color: #003b7a;
+  font-size: 40px;
+  font-family: "Martel", serif;
+}
+
+.heading_1 ul {
+  color: #001f3f;
+  text-align: justify;
+}
+
+.allPoint {
+  color: #001f3f;
+}
+
+.allPoint span {
+  color: #001f3f;
+  font-size: x-large;
+}
+
+.weAreInfo {
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+  color: #003b7a;
+  font-size: 1.5rem;
+  font-family: "Martel", serif, Arial, Helvetica, sans-serif;
+}
+
+/* Starting page CSS */
+
+.startpageCss {
+  min-height: 100%;
+}
+
+.leftColor {
+  width: 50%;
+  height: 800px;
+  background-color: #003b7a;
+}
+.leftColor p {
+  padding: 1em;
+  color: white;
+  font-family: sans-serif;
+  font-size: 1.5em;
+}
+
+.startPageLogo {
+  margin: 0px;
+  margin-top: 30px;
+  margin-left: 20%;
+  width: 60%;
+  border-radius: 40px;
+  background: rgb(250, 250, 250);
+}
+
+.logo-texts {
+  text-align: center;
+}
+
+/* Start page start button  */
+.startButton {
+  text-align: right;
+}
+.startButn {
+  color: #fff;
+  background-color: #003b7a;
+  border-color: #003b7a;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 20%;
+  padding: 0.5rem 2rem;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  text-align: right;
+  outline: none;
+}
+.container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 80px;
+  right: 16px;
+}
+
+img {
+  width: 18%;
+  height: auto;
+}
+
+.b {
+  position: absolute;
+  right: 0;
+  top: 25%;
+  margin-top: 1.5rem;
+  margin-right: 7%;
+  height: 35rem;
+  width: 40%;
+  border: 3px solid blue;
+}
+
+/* Recomender Course list page CSS */
+.allRecomend {
+  padding: 10px 5px 15px 20px;
+  margin-top: 65px;
+  font-size: 17px;
+  font-family: Open Sans;
+  color: #003b7a;
+}
