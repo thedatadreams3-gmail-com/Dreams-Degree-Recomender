@@ -7,7 +7,6 @@
 	• Since those methods have different emphases, the user can choose from the recommendations (of the method) that fit him best.
 	
 # Project Architecture
-### Components:
 
 ### Frontend:
 
