@@ -21,7 +21,7 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 	│   ├── About.vue
 	│   ├── BarChart.vue   *To generate a bar chart
 	│   ├── Documentation.vue
-	│   ├── Home.vue
+	│   ├── Home.vue       *Sends requests to the backend side and wait for response, after that it shows the recommended degrees
 	│   ├── PieChart.vue   *To generate a pie chart
 	│   ├── RecomenderCourseList.vue
 	│   └── Start.vue
