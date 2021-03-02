@@ -1,6 +1,6 @@
 # Project title: Dreams Degree Recommender
 
-**Description**
+### **Description:**
 
 	• Our model uses the descriptions of the study programs from the UDE. Using those data, our model can recommend 
 	study programs based on a user input text. Gensim, TF-IDF sum up, and SVM are the three methods we use to make the predictions. 
