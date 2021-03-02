@@ -34,7 +34,7 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 
 The tool was created using Python with Flask framework.
 
-The useed libraries: click, dill, Flask, Flask-Cors, gensim, itsdangerous, Jinja2, joblib, MarkupSafe, nltk, numpy, pandas, python-dateutil, pytz, regex, scikit-learn
+The used libraries: click, dill, Flask, Flask-Cors, gensim, itsdangerous, Jinja2, joblib, MarkupSafe, nltk, numpy, pandas, python-dateutil, pytz, regex, scikit-learn
 scipy, six, smart-open, threadpoolctl, tqdm, Werkzeug
 
 # The visualizations
