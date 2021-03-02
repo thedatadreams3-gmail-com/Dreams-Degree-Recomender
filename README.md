@@ -35,12 +35,21 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 
 ### Bar Chart Top 10/Top 5: shows the recommended study programs (used for Gensim, and TF-IDF sum up)
 
+![Barchart Top 5](https://user-images.githubusercontent.com/50524579/109694156-c5d97c00-7b8a-11eb-8d64-ad3ee22e8b3f.png)
+
+![Barchart Top 10](https://user-images.githubusercontent.com/50524579/109694192-d25dd480-7b8a-11eb-9aa9-3397f2896979.png)
+
+![Gensim Bar Chart Top 5](https://user-images.githubusercontent.com/50524579/109694215-db4ea600-7b8a-11eb-9cfd-9f46d3c62b3e.png)
+
+![Gensim Bar Chart Top 9](https://user-images.githubusercontent.com/50524579/109694227-dee22d00-7b8a-11eb-9313-a967a570ca31.png)
+
 ### Pie Chart: shows the amount of hours for one chosen study program (used for all methods)
 
-### List for Pie Chart: To choose from the study programs that shall be visualized (used for all methods)
+![Pie Chart ](https://user-images.githubusercontent.com/50524579/109694268-e7d2fe80-7b8a-11eb-864a-2d85d46d9b4c.png)
 
 ### List for Pie Chart: To choose from the study programs that shall be visualized (used for all methods)
 
+![List for Pie Chart](https://user-images.githubusercontent.com/50524579/109694298-f02b3980-7b8a-11eb-9a46-b23970ffb73b.png)
 
 # Steps on running the project
 
