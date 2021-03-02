@@ -82,6 +82,8 @@ scipy, six, smart-open, threadpoolctl, tqdm, Werkzeug
 * To run the project locally for development, run this command
 ```python basics.py```
 
+### In order to run the project properly you have to run both Frontend and Backend sides
+
 # Supervised by
 
 * Professor Dr. Mohamed Amine Chatti
