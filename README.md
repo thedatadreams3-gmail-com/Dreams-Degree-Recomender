@@ -8,6 +8,9 @@
 	
 # Project Architecture
 ### Components:
+
+### Frontend:
+
 The tool was created by using HTML/CSS/JS with the vue.js framework.
 
 	├── index.html
@@ -26,6 +29,13 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 
 * The charts were generated using chart.js and vue-chartjs libraries.
 * All data that we used in the project comes from the file degrees_info.json that is bundled with the website.
+
+### Backend:
+
+The tool was created using Python with Flask framework.
+
+The useed libraries: click, dill, Flask, Flask-Cors, gensim, itsdangerous, Jinja2, joblib, MarkupSafe, nltk, numpy, pandas, python-dateutil, pytz, regex, scikit-learn
+scipy, six, smart-open, threadpoolctl, tqdm, Werkzeug
 
 # The visualizations
 
