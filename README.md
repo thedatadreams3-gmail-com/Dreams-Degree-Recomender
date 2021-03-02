@@ -3,7 +3,7 @@
 **Description**
 
 	• Our model uses the descriptions of the study programs from the UDE. Using those data, our model can recommend 
-		study programs based on a user input text. Gensim, TF-IDF sum up, and SVM are the three methods we use to make the predictions. 
+	study programs based on a user input text. Gensim, TF-IDF sum up, and SVM are the three methods we use to make the predictions. 
 	• Since those methods have different emphases, the user can choose from the recommendations (of the method) that fit him best.
 	
 # Project Architecture
