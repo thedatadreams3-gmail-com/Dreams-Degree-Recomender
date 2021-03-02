@@ -44,7 +44,7 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 
 # Steps on running the project
 
-###Frontend:
+### Frontend:
 
 * Download and install YARN and Node.js
 * Clone or download and extract the frontend repository.
@@ -58,7 +58,7 @@ The tool was created by using HTML/CSS/JS with the vue.js framework.
 * You can upload the files into static filehosting service
 
 
-###Backend:
+### Backend:
 
 * Download and install Python 3
 * Clone or download and extract the backend repository.
