@@ -81,6 +81,15 @@ scipy, six, smart-open, threadpoolctl, tqdm, Werkzeug
 ```pip install -r requirements.txt``` 
 * To run the project locally for development, run this command
 ```python basics.py```
+* To deploy the project, a virtual environment shoud be created using this command
+```python -m venv env```
+* Install gunicorn which is a WSGI HTTP server, using this command
+```pip install gunicorn```
+* Create the requirements file by typing this command
+```pip freeze > requirements.txt```
+* Now create a new file, name it Procfile and type
+```web: gunicorn --bind 0.0.0.0:$PORT basics:app```
+* Now the project can be deployed
 
 ### In order to run the project properly you have to run both Frontend and Backend sides
 
