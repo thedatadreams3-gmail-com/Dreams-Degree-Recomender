@@ -70,6 +70,7 @@ scipy, six, smart-open, threadpoolctl, tqdm, Werkzeug
 ```yarn build```
 * After building the project you will get the website in "dist" folder
 * You can upload the files into static filehosting service
+* [Deployed version](https://thedatadreams3-gmail-com.github.io/)
 
 
 ### Backend:
